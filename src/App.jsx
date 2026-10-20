@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import CartDrawer from './components/CartDrawer';
 import WishlistDrawer from './components/WishlistDrawer';
 import Home from './pages/Home';
+import Checkout from './pages/Checkout';
 import { CheckCircle } from 'lucide-react';
 
 export default function App() {
@@ -84,7 +85,7 @@ export default function App() {
           setSelectedCategory={setSelectedCategory}
         />
 
-        {/* Define your routes here */}
+        {/* Routes */}
         <Routes>
           <Route
             path="/"
@@ -101,7 +102,8 @@ export default function App() {
               />
             }
           />
-                 </Routes>
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
 
         <CartDrawer
           isOpen={isCartOpen}
@@ -109,11 +111,6 @@ export default function App() {
           cart={cart}
           updateQuantity={updateQuantity}
           cartTotal={cartTotal}
-          onCheckout={() => {
-            alert('Order placed successfully! Enjoy your food!');
-            setCart([]);
-            setIsCartOpen(false);
-          }}
         />
 
         <WishlistDrawer
